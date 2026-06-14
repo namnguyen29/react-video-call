@@ -1,0 +1,76 @@
+{
+  "name": "simple-webrtc",
+  "version": "0.0.1",
+  "description": "Video call feature for webapp, using WebRTC and Firebase",
+  "type": "add-on",
+  "phase": "add-on",
+  "modes": ["file-router"],
+  "dependsOn": ["firebase", "shadcn"],
+  "envVars": [
+    {
+      "name": "VITE_FIREBASE_PROJECT_ID",
+      "description": "Firebase project ID",
+      "required": true
+    }
+  ],
+  "routes": [
+    {
+      "url": "/video-call.tsx",
+      "name": "WebRTC demo feature",
+      "path": "src/routes/video-call.tsx",
+      "jsName": "WebRTCDemo"
+    }
+  ],
+  "integrations": [
+    {
+      "type": "provider",
+      "jsName": "ICEServers",
+      "path": "src/constants/ice-servers.const.ts"
+    },
+    {
+      "type": "provider",
+      "jsName": "useUserMedia",
+      "path": "src/hooks/use-user-media.ts"
+    },
+    {
+      "type": "provider",
+      "jsName": "useWebRTC",
+      "path": "src/hooks/use-webrtc.ts"
+    },
+    {
+      "type": "provider",
+      "jsName": "WebRTCPeerConnection",
+      "path": "src/lib/webrtc/peer-connection.ts"
+    },
+    {
+      "type": "provider",
+      "jsName": "WebRTCRoomService",
+      "path": "src/lib/webrtc/room-service.ts"
+    },
+    {
+      "type": "provider",
+      "jsName": "FirebaseClient",
+      "path": "src/lib/firebase-client.ts"
+    },
+    {
+      "type": "provider",
+      "jsName": "JoinRoomDialogComponent",
+      "path": "src/components/join-room-dialog.tsx"
+    },
+    {
+      "type": "provider",
+      "jsName": "RoomStatusComponent",
+      "path": "src/components/room-status.tsx"
+    },
+    {
+      "type": "provider",
+      "jsName": "VideoViewComponent",
+      "path": "src/components/video-view.tsx"
+    },
+    {
+      "type": "provider",
+      "jsName": "VideoCallPage",
+      "path": "src/pages/video-call-page.tsx"
+    }
+  ]
+}
